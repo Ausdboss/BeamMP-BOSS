@@ -88,6 +88,8 @@
   "ui.options.multiplayer.experimental": "DENEYSEL",
   "ui.options.multiplayer.leftMouseButton": "Sol fare düğmesi",
   "ui.options.multiplayer.rightMouseButton": "Sağ fare düğmesi",
+  "ui.options.multiplayer.refreshIngame": "Sunucu listesinin oyun içinde yenilenmesine izin ver",
+  "ui.options.multiplayer.refreshIngame.tooltip": "Bir oturumdayken sunucu listesinin yenilenmesine izin verilip verilmeyeceği. Bunu etkinleştirmek gecikme (lag) artışlarına neden olabilir.",
   "ui.multiplayer.multiplayer": "Çok Oyunculu",
   "ui.multiplayer.connecting": "Bağlanılıyor",
   "ui.multiplayer.connectingToServer": "Sunucuya bağlanılıyor...",
@@ -122,6 +124,8 @@
   "ui.multiplayer.notFullTooltip": "Sadece dolu olmayan sunucuları göster",
   "ui.multiplayer.mapFilterTooltip": "Harita filtresini etkinleştir",
   "ui.multiplayer.serverVersionFilterTooltip": "Sunucu versiyonu filtresini etkinleştir",
+  "ui.multiplayer.tagFilterTooltip": "Etiket filtresini etkinleştir",
+  "ui.multiplayer.serverLocationFilterTooltip": "Sunucu konumu filtresini etkinleştir",
   "ui.multiplayer.modSlider": "Mod boyutu sınırlayıcısı",
   "ui.multiplayer.modSliderTooltip": "Mod boyutu sınırlayıcısını etkinleştir",
   "ui.multiplayer.clearRecent": "Son Sunucuları Temizle",
@@ -174,5 +178,5 @@
   "ui.multiplayer.filters.map": "Harita",
   "ui.multiplayer.filters.serverVersions": "Sunucu Versiyon(ları):",
   "ui.multiplayer.filters.tags": "Etiketler:",
-  "ui.multiplayer.tagFilterTooltip": "Etiketlere göre filtrele"
+  "ui.multiplayer.filters.serverLocations": "Lokasyon(lar): "
 }
