@@ -809,6 +809,20 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	wendover = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_wendover_body"
+		parts.simple_traffic_wendover_bumper_F = parts.wendover_bumper_F == "" and "" or nil
+		parts.simple_traffic_wendover_bumper_R = parts.wendover_bumper_R == "" and "" or nil
+		parts.simple_traffic_wendover_hood = parts.wendover_hood == "" and "" or nil
+		parts.simple_traffic_wendover_trunk = parts.wendover_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 }
 
 --- modify the given vehicleConfig so it as closely resembles the original config with simplified vehicle, or not touched if simplified vehicle not possible
