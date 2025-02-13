@@ -809,6 +809,32 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	vivace = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_vivace_body"
+		if string.find(parts.tograc_bumper_F or "", "tograc_bumper_F") then
+			parts.simple_traffic_vivace_bumper_F_tograc = "simple_traffic_vivace_bumper_F_tograc"
+		else
+			parts.simple_traffic_vivace_bumper_F_vivace = parts.vivace_bumper_F == "" and "" or nil
+		end
+		if string.find(parts.tograc_bumper_R or "", "tograc_bumper_R") then
+			parts.simple_traffic_vivace_bumper_R_tograc = "simple_traffic_vivace_bumper_R_tograc"
+		else
+			parts.simple_traffic_vivace_bumper_R_vivace = parts.vivace_bumper_R == "" and "" or nil
+		end
+		if string.find(parts.tograc_hood or "", "tograc_hood") then
+			parts.simple_traffic_vivace_hood_tograc = "simple_traffic_vivace_hood_tograc"
+		else
+			parts.simple_traffic_vivace_hood_vivace = parts.vivace_hood == "" and "" or nil
+		end
+		parts.simple_traffic_vivace_trunk = parts.vivace_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 	wendover = function(vehicleConfig)
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
