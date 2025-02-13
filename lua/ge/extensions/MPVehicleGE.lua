@@ -574,6 +574,20 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	etkc = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_etkc_body"
+		parts.simple_traffic_etkc_bumper_F = parts.etkc_bumper_F == "" and "" or nil
+		parts.simple_traffic_etkc_bumper_R = parts.etkc_bumper_R == "" and "" or nil
+		parts.simple_traffic_etkc_hood = parts.etki_hood == "" and "" or nil
+		parts.simple_traffic_etkc_trunk = parts.etki_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 	etki = function(vehicleConfig)
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
