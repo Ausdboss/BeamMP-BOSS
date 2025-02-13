@@ -754,6 +754,20 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	sunburst = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_suburst_body"
+		parts.simple_traffic_sunburst_bumper_F = parts.sunburst_bumper_F == "" and "" or nil
+		parts.simple_traffic_sunburst_bumper_R = parts.sunburst_bumper_R == "" and "" or nil
+		parts.simple_traffic_sunburst_hood = parts.sunburst_hood == "" and "" or nil
+		parts.simple_traffic_sunburst_trunk = parts.sunburst_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 	van = function(vehicleConfig)
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
