@@ -758,7 +758,7 @@ local vehicleSimplifiers = {
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
 
-		parts.simple_traffic_model = "simple_traffic_suburst_body"
+		parts.simple_traffic_model = "simple_traffic_sunburst_body"
 		parts.simple_traffic_sunburst_bumper_F = parts.sunburst_bumper_F == "" and "" or nil
 		parts.simple_traffic_sunburst_bumper_R = parts.sunburst_bumper_R == "" and "" or nil
 		parts.simple_traffic_sunburst_hood = parts.sunburst_hood == "" and "" or nil
@@ -813,7 +813,7 @@ local vehicleSimplifiers = {
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
 
-		parts.simple_traffic_model = "simple_traffic_vivace_body"
+		parts.simple_traffic_model = "simple_traffic_vivace"
 		if string.find(parts.tograc_bumper_F or "", "tograc_bumper_F") then
 			parts.simple_traffic_vivace_bumper_F_tograc = "simple_traffic_vivace_bumper_F_tograc"
 		else
@@ -839,7 +839,7 @@ local vehicleSimplifiers = {
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
 
-		parts.simple_traffic_model = "simple_traffic_wendover_body"
+		parts.simple_traffic_model = "simple_traffic_wendover"
 		parts.simple_traffic_wendover_bumper_F = parts.wendover_bumper_F == "" and "" or nil
 		parts.simple_traffic_wendover_bumper_R = parts.wendover_bumper_R == "" and "" or nil
 		parts.simple_traffic_wendover_hood = parts.wendover_hood == "" and "" or nil
