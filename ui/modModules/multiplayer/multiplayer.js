@@ -131,7 +131,7 @@ export default angular.module('multiplayer', ['ui.router'])
 	beammpUserInfo.innerHTML = `
 	<style>
 .beammp-info-bar {
-  z-index: 1000000000;
+  z-index: 96;
   position: absolute;
   top: 3em;
   right: 0;
