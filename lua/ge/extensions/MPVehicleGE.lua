@@ -574,6 +574,20 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	etkc = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_etkc_body"
+		parts.simple_traffic_etkc_bumper_F = parts.etkc_bumper_F == "" and "" or nil
+		parts.simple_traffic_etkc_bumper_R = parts.etkc_bumper_R == "" and "" or nil
+		parts.simple_traffic_etkc_hood = parts.etki_hood == "" and "" or nil
+		parts.simple_traffic_etkc_trunk = parts.etki_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 	etki = function(vehicleConfig)
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
@@ -740,6 +754,20 @@ local vehicleSimplifiers = {
 		vehicleConfig.mainPartName = newModel
 		return newModel
 	end,
+	sunburst = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_sunburst"
+		parts.simple_traffic_sunburst_bumper_F = parts.sunburst_bumper_F == "" and "" or nil
+		parts.simple_traffic_sunburst_bumper_R = parts.sunburst_bumper_R == "" and "" or nil
+		parts.simple_traffic_sunburst_hood = parts.sunburst_hood == "" and "" or nil
+		parts.simple_traffic_sunburst_trunk = parts.sunburst_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
 	van = function(vehicleConfig)
 		local parts = vehicleConfig.parts
 		local newModel = "simple_traffic"
@@ -776,6 +804,46 @@ local vehicleSimplifiers = {
 				parts.simple_traffic_van_body = "simple_traffic_van_body_cargo"
 			end
 		end
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
+	vivace = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_vivace"
+		if string.find(parts.vivace_bumper_F or "", "tograc_bumper_F") then
+			parts.simple_traffic_vivace_bumper_F_tograc = "simple_traffic_vivace_bumper_F_tograc"
+		else
+			parts.simple_traffic_vivace_bumper_F_vivace = parts.vivace_bumper_F == "" and "" or nil
+		end
+		if string.find(parts.vivace_bumper_R or "", "tograc_bumper_R") then
+			parts.simple_traffic_vivace_bumper_R_tograc = "simple_traffic_vivace_bumper_R_tograc"
+		else
+			parts.simple_traffic_vivace_bumper_R_vivace = parts.vivace_bumper_R == "" and "" or nil
+		end
+		if string.find(parts.vivace_hood or "", "tograc_hood") then
+			parts.simple_traffic_vivace_hood_tograc = "simple_traffic_vivace_hood_tograc"
+		else
+			parts.simple_traffic_vivace_hood_vivace = parts.vivace_hood == "" and "" or nil
+		end
+		parts.simple_traffic_vivace_trunk = parts.vivace_trunk == "" and "" or nil
+
+		vehicleConfig.model = newModel
+		vehicleConfig.mainPartName = newModel
+		return newModel
+	end,
+	wendover = function(vehicleConfig)
+		local parts = vehicleConfig.parts
+		local newModel = "simple_traffic"
+
+		parts.simple_traffic_model = "simple_traffic_wendover"
+		parts.simple_traffic_wendover_bumper_F = parts.wendover_bumper_F == "" and "" or nil
+		parts.simple_traffic_wendover_bumper_R = parts.wendover_bumper_R == "" and "" or nil
+		parts.simple_traffic_wendover_hood = parts.wendover_hood == "" and "" or nil
+		parts.simple_traffic_wendover_trunk = parts.wendover_trunk == "" and "" or nil
 
 		vehicleConfig.model = newModel
 		vehicleConfig.mainPartName = newModel
