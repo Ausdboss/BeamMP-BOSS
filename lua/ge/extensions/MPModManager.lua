@@ -283,9 +283,9 @@ local function onExtensionLoaded()
 		end
 	end
 
-	log('I', 'onExtensionLoaded','Amount of mods in content/vehicles/: ' .. tostring(#FS:directoryList("/content/vehicles/")))
-	log('I', 'onExtensionLoaded','Amount of mods in content/levels/: ' .. tostring(#FS:directoryList("/content/levels/")))
-	log('I', 'onExtensionLoaded','Amount of mods in content/: ' .. tostring(#FS:directoryList("/content/")))
+	log('I', 'onExtensionLoaded','Amount of files in content/vehicles/: ' .. tostring(#FS:directoryList("/content/vehicles/")))
+	log('I', 'onExtensionLoaded','Amount of files in content/levels/: ' .. tostring(#FS:directoryList("/content/levels/")))
+	log('I', 'onExtensionLoaded','Amount of files in content/: ' .. tostring(#FS:directoryList("/content/")))
 	extensions.printExtensions()
 
 	loadLocalesAndDefaults()
