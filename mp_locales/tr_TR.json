@@ -15,6 +15,8 @@
   "ui.options.multiplayer.queueAuto.tooltip": "Etkinleştirilirse sıradaki araçlar yalnızca aşağıdaki ayarlara göre durduğunuzda spawnlanır",
   "ui.options.multiplayer.highlightQueuedPlayers": "Sıradaki oyuncuları vurgula",
   "ui.options.multiplayer.highlightQueuedPlayers.tooltip": "Oyuncu listesinde etkinlikleri sıraya almış oyuncuları vurgulayın",
+  "ui.options.multiplayer.playerlistLeftclick": "Oyuncu listesi sol tıklama eylemi",
+  "ui.options.multiplayer.playerlistLeftclick.tooltip": "Oyuncu listesinde bir oyuncu adına sol tıkladığınızda ne olacağını seçin",
   "ui.options.multiplayer.queueApplySpeed": "Sıra uygulama hızı eşiği",
   "ui.options.multiplayer.queueApplySpeed.tooltip": "Aracınız bu hızdan daha yavaş hareket ederse sıra uygulanır",
   "ui.options.multiplayer.queueApplyTimeout": "Sıra uygulaması zaman aşımı",
@@ -174,5 +176,13 @@
   "ui.multiplayer.filters.map": "Harita",
   "ui.multiplayer.filters.serverVersions": "Sunucu Versiyon(ları):",
   "ui.multiplayer.filters.tags": "Etiketler:",
-  "ui.multiplayer.filters.serverLocations": "Lokasyon(lar): "
+  "ui.multiplayer.filters.serverLocations": "Lokasyon(lar): ",
+  "ui.apps.multiplayer.playerlist.copyname": "Adı kopyala",
+  "ui.apps.multiplayer.playerlist.deleteAllVehicles": "Tüm araçları sil",
+  "ui.apps.multiplayer.playerlist.queueEvents": "Etkinlikleri kuyruğa ekle",
+  "ui.apps.multiplayer.playerlist.switchCameraTo": "İzle",
+  "ui.apps.multiplayer.playerlist.openProfile": "Profili göster",
+  "ui.apps.multiplayer.playerlist.restoreVehicles": "Silinen araçları kuyruğa ekle",
+  "ui.apps.multiplayer.playerlist.players": "Oyuncular",
+  "ui.apps.multiplayer.playerlist.error": "Oyuncu yok... bir sorun var"
 }
