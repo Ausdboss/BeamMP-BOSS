@@ -15,7 +15,7 @@
   "ui.options.multiplayer.queueAuto.tooltip": "Si activé, les modifications mises en file d'attente seront uniquement appliqués une fois à l'arrêt",
   "ui.options.multiplayer.highlightQueuedPlayers": "Mettre en surbrillance les joueurs en file d'attente",
   "ui.options.multiplayer.highlightQueuedPlayers.tooltip": "Mettre en surbrillance les joueurs qui ont mis en file d'attente des événements dans la liste des joueurs",
-  "ui.options.multiplayer.playerlistLeftclick": "Action du click droit sur la liste de joueurs",
+  "ui.options.multiplayer.playerlistLeftclick": "Action du click gauche sur la liste de joueurs",
   "ui.options.multiplayer.playerlistLeftclick.tooltip": "Choisis ce que qui va ce passer lorsque vous allez cliquer sur le nom d'un joueur dans la liste des jouseurs",
   "ui.options.multiplayer.queueApplySpeed": "Seuil de vitesse de mise en file d'attente",
   "ui.options.multiplayer.queueApplySpeed.tooltip": "Des files d'attente s'appliquent si votre véhicule se déplace plus lentement que cette vitesse",
