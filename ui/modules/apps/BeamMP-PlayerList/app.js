@@ -267,7 +267,6 @@ app.controller("PlayerList", ['$scope', '$filter', function ($scope, $filter) {
 	
 				// Insert a cell containing the player ping
 				var pingCell = row.insertCell(2);
-				pingCell.setAttribute("class", "tp-button");
 	
 				// Insert the button inside the cell
 				var btn = document.createElement("BUTTON");

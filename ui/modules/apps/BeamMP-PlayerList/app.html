@@ -28,8 +28,9 @@
 			min-height: 27px;
 		}
 		.tp-button {
-			width: 62px;
+			width: 64px !important;
 			min-height: 27px;
+			margin: 0;
 		}
 		#players-table {
 			color: white;
@@ -39,6 +40,7 @@
 			padding-bottom: -4px;
 			background-color: rgba(0, 0, 0, 0.25);
 			border: 2px solid rgba(175, 175, 175, 0.45);
+			table-layout:fixed;
 		}
 		#players-table td {
 			padding: 0 0 0 5px;
@@ -107,14 +109,26 @@
 		#playerlist-contextmenu button:hover {
 			background: #555;
 		}
+		.playerslist-col-1 {
+			width: 32px;			
+		}
+		.playerslist-col-2 {
+			min-width: 100px;
+			width: auto;			
+		}
+		.playerslist-col-3 {
+			width: 64px;
+		}
 	</style>
 	<div id="main-container">
 		<div id="plist-container">
 			<table id="players-table">
 				<tr>
-					<th colspan="1" ng-show="showPlayerIDs">ID</th>
-					<th colspan="3">
+					<th class="playerslist-col-1" ng-show="showPlayerIDs">ID</th>
+					<th class="playerslist-col-2">
 						{{:: 'ui.apps.multiplayer.playerlist.players' | translate }}
+					</th>
+					<th  class="playerslist-col-3">
 						<button class="buttons direction-buttons" ng-click="plSwapHorizontal()">🡘</button>
 						<button class="buttons direction-buttons" ng-click="plSwapVertical()">🡙</button>
 					</th>
