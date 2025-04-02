@@ -1502,7 +1502,7 @@ local function onVehicleDestroyed(gameVehicleID)
 			if vehicle.isLocal then
 				if serverVehicleID then
 					local veh = be:getObjectByID(gameVehicleID)
-					if veh:getJBeamFilename() == "unicycle" and settings.getValue("unicycleAutoSave") == true then -- if the player destroyed their unicycle
+					if veh and veh:getJBeamFilename() == "unicycle" and settings.getValue("unicycleAutoSave") == true then -- if the player destroyed their unicycle
 						local vehicleConfig = extensions.core_vehicle_manager.getVehicleData(gameVehicleID).config
 						--[[ Contains as of 0.30
 							[parts] = table
@@ -1708,6 +1708,12 @@ local function onServerVehicleSpawned(playerRole, playerNickname, serverVehicleI
 		end
 
 		log("W", "onServerVehicleSpawned", "ID is same as received ID, synced vehicle gameVehicleID: "..gameVehicleID.." with ServerID: "..serverVehicleID)
+		
+		local veh = be:getObjectByID(gameVehicleID)
+		if not veh or not veh:getActive() then
+			log("W", "onServerVehicleSpawned", "Local vehicle "..gameVehicleID.." does not exist anymore, triggering delete event for server vehicle "..serverVehicleID)
+			onVehicleDestroyed(gameVehicleID)
+		end
 
 	elseif vehicles[serverVehicleID] and vehicles[serverVehicleID].remoteVehID == gameVehicleID then
 
