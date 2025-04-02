@@ -1134,10 +1134,16 @@ local function sendVehicleSpawn(gameVehicleID)
 		vehicleTable.pid = MPConfig.getPlayerServerID() -- Player Server ID
 		vehicleTable.vid = gameVehicleID -- Game Vehicle ID
 		vehicleTable.jbm = veh:getJBeamFilename() -- JBeam
-		vehicleTable.vcf = vehicleData.config -- Vehicle Config, contains paint data
+		vehicleTable.vcf = deepcopy(vehicleData.config) -- Vehicle Config, contains paint data
 		vehicleTable.pos = {pos.x, pos.y, pos.z} -- Position
 		vehicleTable.rot = {rot.x, rot.y, rot.z, rot.w} -- Rotation
 		vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
+
+		-- Remove extra data from the 0.35 update:
+		vehicleTable.vcf.beams = nil
+		vehicleTable.vcf.nodes = nil
+		vehicleTable.vcf.partsTree = nil
+		vehicleTable.vcf.partsTree = nil
 		if vehicleTable.pro == true then
 			vehicleTable.pro = "1"
 		else
@@ -1338,7 +1344,7 @@ local function applyVehEdit(serverID, data)
 		log('I','applyVehEdit',"Updating vehicle "..gameVehicleID.." config")
 		local playerVehicle = extensions.core_vehicle_manager.getVehicleData(gameVehicleID)
 
-		local partsDiff = MPHelpers.tableDiff(playerVehicle.config.parts, vehicleConfig.parts)
+		local partsDiff = MPHelpers.tableDiff(playerVehicle.config.partsTree, vehicleConfig.partsTree)
 		local tuningDiff = MPHelpers.tableDiff(playerVehicle.config.vars, vehicleConfig.vars)
 
 		local configChanged = tableSize(partsDiff) > 0 or tableSize(tuningDiff) > 0
