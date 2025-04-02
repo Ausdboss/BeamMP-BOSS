@@ -1139,11 +1139,6 @@ local function sendVehicleSpawn(gameVehicleID)
 		vehicleTable.rot = {rot.x, rot.y, rot.z, rot.w} -- Rotation
 		vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
 
-		-- Remove extra data from the 0.35 update:
-		--vehicleTable.vcf.beams = nil
-		--vehicleTable.vcf.nodes = nil
-		--vehicleTable.vcf.partsTree = nil
-		--vehicleTable.vcf.parts = core_vehicle_manager.getVehicleData(gameVehicleID).vdata.activeParts
 		if vehicleTable.pro == true then
 			vehicleTable.pro = "1"
 		else
@@ -1183,7 +1178,7 @@ local function sendVehicleEdit(gameVehicleID)
 
 	vehicleTable.pid = MPConfig.getPlayerServerID()
 	vehicleTable.jbm = veh:getJBeamFilename()
-	vehicleTable.vcf = vehicleData.config
+	vehicleTable.vcf = MPHelpers.simplifyVehConfig(deepcopy(vehicleData.config))
 	vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
 
 	if vehicleTable.pro == true then
