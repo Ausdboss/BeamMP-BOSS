@@ -1573,8 +1573,8 @@ local function onVehicleSwitched(oldGameVehicleID, newGameVehicleID)
 
 		if newGameVehicleID and newGameVehicleID > -1 then
 			local skipOthers = settings.getValue("skipOtherPlayersVehicles", false)
-			local oldVehicle = be:getObjectByID(oldGameVehicleID or -1)
-			local newVehicle = be:getObjectByID(newGameVehicleID or -1)
+			local oldVehicle = getObjectByID(oldGameVehicleID or -1)
+			local newVehicle = getObjectByID(newGameVehicleID or -1)
 
 			local newVehObj = getVehicleByGameID(newGameVehicleID) or {}
 
