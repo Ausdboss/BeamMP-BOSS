@@ -1425,7 +1425,6 @@ local function onVehicleSpawned(gameVehicleID)
 		vehicle.jbeam = newJbeamName
 		vehicle.vehicleHeight = veh:getInitialHeight()
 	end
-
 end
 
 --============================ ON VEHICLE REMOVED (CLIENT) ============================
@@ -2285,7 +2284,7 @@ local function onPreRender(dt)
 			local veh = be:getObjectByID(gameVehicleID)
 
 			if v.isSpawned and veh then -- update position if available
-				if not v.vehicleHeight then
+				if not v.vehicleHeight or v.vehicleHeight == 0 then
 					v.vehicleHeight = veh:getInitialHeight()
 				end
 				local tempPosx,tempPosy,tempPosz = be:getObjectOOBBCenterXYZ(gameVehicleID)
