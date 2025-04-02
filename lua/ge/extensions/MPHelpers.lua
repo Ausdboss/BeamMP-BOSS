@@ -156,6 +156,52 @@ local function getColorsFromVehObj(veh)
 	return paints
 end
 
+local function simplifyVehConfig(data) -- this code is from the game function savePartConfigFileStage2_Format2 located in lua\ge\extensions\core\vehicle\partmgmt.lua
+	local legacySlotMap = {}
+	local legacySlotMapSimple = {}
+
+	-- we want to have a simple key: value structure for the parts
+
+	local function  flattenPartsTreeRecursive(node)
+		if not node then return end
+		for slotId, child in pairs(node.children or {}) do
+			legacySlotMap[child.path] = {
+				slotId = child.id,
+				path = child.path,
+				chosenPartName = child.chosenPartName,
+			}
+			flattenPartsTreeRecursive(child)
+		end
+	end
+	flattenPartsTreeRecursive(data.partsTree)
+	data.partsTree = nil
+	-- now simplify it
+	for path, slotData in pairs(legacySlotMap) do
+		if not legacySlotMapSimple[slotData.slotId] then
+			legacySlotMapSimple[slotData.slotId] = slotData
+		else
+			-- we have a collision, so we need to save both slots with the full path
+			local tmp = legacySlotMapSimple[slotData.slotId]
+			if tmp ~= "COLLISION" then
+				legacySlotMapSimple[tmp.path] = tmp
+				legacySlotMapSimple[slotData.slotId] = "COLLISION"
+			end
+			legacySlotMapSimple[slotData.path] = slotData
+		end
+	end
+	-- now discard the complex data
+	for key, slotData in pairs(legacySlotMapSimple) do
+		if slotData ~= "COLLISION" then
+			legacySlotMapSimple[key] = slotData.chosenPartName
+		else
+			legacySlotMapSimple[key] = nil
+		end
+	end
+	-- save to the resulting data table
+	data.parts = legacySlotMapSimple
+	return data
+end
+
 --- Returns a semi formatted string with information about the caller of this function.
 -- @param[opt] level number The level of the stack trace to retrieve.
 -- @return string A string containing the source file, line number, name type, and name of the caller.
@@ -240,6 +286,7 @@ M.b64encode                = b64encode
 M.b64decode                = b64decode
 M.getColorsFromVehObj      = getColorsFromVehObj
 M.splitStringToTable       = splitStringToTable
+M.simplifyVehConfig        = simplifyVehConfig
 
 M.onExtensionLoaded = onExtensionLoaded
 M.onInit = function() setExtensionUnloadMode(M, "manual") end

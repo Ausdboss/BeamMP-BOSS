@@ -4,7 +4,7 @@
 
 local ver = split(beamng_versionb, ".")
 local majorVer = tonumber(ver[2])
-local compatibleVersion = 34
+local compatibleVersion = 35
 if majorVer ~= compatibleVersion then
 	log('W', 'versionCheck', 'BeamMP is incompatible with BeamNG.drive version '..beamng_versionb)
 	log('M', 'versionCheck', 'Deactivating BeamMP mod.')

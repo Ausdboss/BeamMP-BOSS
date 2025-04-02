@@ -1134,10 +1134,11 @@ local function sendVehicleSpawn(gameVehicleID)
 		vehicleTable.pid = MPConfig.getPlayerServerID() -- Player Server ID
 		vehicleTable.vid = gameVehicleID -- Game Vehicle ID
 		vehicleTable.jbm = veh:getJBeamFilename() -- JBeam
-		vehicleTable.vcf = vehicleData.config -- Vehicle Config, contains paint data
+		vehicleTable.vcf = MPHelpers.simplifyVehConfig(deepcopy(vehicleData.config)) -- Vehicle Config, contains paint data
 		vehicleTable.pos = {pos.x, pos.y, pos.z} -- Position
 		vehicleTable.rot = {rot.x, rot.y, rot.z, rot.w} -- Rotation
 		vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
+
 		if vehicleTable.pro == true then
 			vehicleTable.pro = "1"
 		else
@@ -1177,7 +1178,7 @@ local function sendVehicleEdit(gameVehicleID)
 
 	vehicleTable.pid = MPConfig.getPlayerServerID()
 	vehicleTable.jbm = veh:getJBeamFilename()
-	vehicleTable.vcf = vehicleData.config
+	vehicleTable.vcf = MPHelpers.simplifyVehConfig(deepcopy(vehicleData.config))
 	vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
 
 	if vehicleTable.pro == true then
@@ -1338,7 +1339,7 @@ local function applyVehEdit(serverID, data)
 		log('I','applyVehEdit',"Updating vehicle "..gameVehicleID.." config")
 		local playerVehicle = extensions.core_vehicle_manager.getVehicleData(gameVehicleID)
 
-		local partsDiff = MPHelpers.tableDiff(playerVehicle.config.parts, vehicleConfig.parts)
+		local partsDiff = MPHelpers.tableDiff(playerVehicle.config.partsTree, vehicleConfig.partsTree)
 		local tuningDiff = MPHelpers.tableDiff(playerVehicle.config.vars, vehicleConfig.vars)
 
 		local configChanged = tableSize(partsDiff) > 0 or tableSize(tuningDiff) > 0
@@ -1424,7 +1425,6 @@ local function onVehicleSpawned(gameVehicleID)
 		vehicle.jbeam = newJbeamName
 		vehicle.vehicleHeight = veh:getInitialHeight()
 	end
-
 end
 
 --============================ ON VEHICLE REMOVED (CLIENT) ============================
@@ -1567,8 +1567,8 @@ local function onVehicleSwitched(oldGameVehicleID, newGameVehicleID)
 
 		if newGameVehicleID and newGameVehicleID > -1 then
 			local skipOthers = settings.getValue("skipOtherPlayersVehicles", false)
-			local oldVehicle = be:getObjectByID(oldGameVehicleID or -1)
-			local newVehicle = be:getObjectByID(newGameVehicleID or -1)
+			local oldVehicle = getObjectByID(oldGameVehicleID or -1)
+			local newVehicle = getObjectByID(newGameVehicleID or -1)
 
 			local newVehObj = getVehicleByGameID(newGameVehicleID) or {}
 
@@ -2284,7 +2284,7 @@ local function onPreRender(dt)
 			local veh = be:getObjectByID(gameVehicleID)
 
 			if v.isSpawned and veh then -- update position if available
-				if not v.vehicleHeight then
+				if not v.vehicleHeight or v.vehicleHeight == 0 then
 					v.vehicleHeight = veh:getInitialHeight()
 				end
 				local tempPosx,tempPosy,tempPosz = be:getObjectOOBBCenterXYZ(gameVehicleID)
