@@ -1134,16 +1134,16 @@ local function sendVehicleSpawn(gameVehicleID)
 		vehicleTable.pid = MPConfig.getPlayerServerID() -- Player Server ID
 		vehicleTable.vid = gameVehicleID -- Game Vehicle ID
 		vehicleTable.jbm = veh:getJBeamFilename() -- JBeam
-		vehicleTable.vcf = deepcopy(vehicleData.config) -- Vehicle Config, contains paint data
+		vehicleTable.vcf = MPHelpers.simplifyVehConfig(deepcopy(vehicleData.config)) -- Vehicle Config, contains paint data
 		vehicleTable.pos = {pos.x, pos.y, pos.z} -- Position
 		vehicleTable.rot = {rot.x, rot.y, rot.z, rot.w} -- Rotation
 		vehicleTable.pro = settings.getValue("protectConfigFromClone", false) -- Should the config be protected?
 
 		-- Remove extra data from the 0.35 update:
-		vehicleTable.vcf.beams = nil
-		vehicleTable.vcf.nodes = nil
-		vehicleTable.vcf.partsTree = nil
-		vehicleTable.vcf.partsTree = nil
+		--vehicleTable.vcf.beams = nil
+		--vehicleTable.vcf.nodes = nil
+		--vehicleTable.vcf.partsTree = nil
+		--vehicleTable.vcf.parts = core_vehicle_manager.getVehicleData(gameVehicleID).vdata.activeParts
 		if vehicleTable.pro == true then
 			vehicleTable.pro = "1"
 		else
