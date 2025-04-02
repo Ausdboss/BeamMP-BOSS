@@ -156,7 +156,7 @@ local function getColorsFromVehObj(veh)
 	return paints
 end
 
-local function simplifyVehConfig(data)
+local function simplifyVehConfig(data) -- this code is from the game function savePartConfigFileStage2_Format2 located in lua\ge\extensions\core\vehicle\partmgmt.lua
 	local legacySlotMap = {}
 	local legacySlotMapSimple = {}
 
