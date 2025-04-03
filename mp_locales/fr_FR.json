@@ -2,7 +2,7 @@
   "ui.playmodes.multiplayer": "Multijoueur",
   "ui.options.multiplayer": "Multijoueur",
   "ui.options.multiplayer.protectConfigFromClone": "Active la protection contre le clonage de la configuration",
-  "ui.options.multiplayer.protectConfigFromClone.tooltip": "Protège cette configuration contre le clonage par d'autres joueurs.",
+  "ui.options.multiplayer.protectConfigFromClone.tooltip": "Protège cette configuration contre le clonage par d'autres joueurs",
   "ui.options.multiplayer.enableNewChatMenu": "Nouveau menu de tchat",
   "ui.options.multiplayer.enableNewChatMenu.tooltip": "Le nouveau menu de tchat utilise ImGui. C'est personnalisable, élégant et génial !",
   "ui.options.multiplayer.enablePosSmoother": "Activer le lissage de la position du véhicule",
