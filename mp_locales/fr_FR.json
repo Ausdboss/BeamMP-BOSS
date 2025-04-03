@@ -24,7 +24,7 @@
   "ui.options.multiplayer.queueAutoSkipRemote": "Ignorer la file d'attente si vous êtes en spectateur d'autres joueurs",
   "ui.options.multiplayer.queueAutoSkipRemote.tooltip": "Si l'option est activée et que vous observez d'autres joueurs, vous ferez apparaître les véhicules en file d'attente immédiatement.",
   "ui.options.multiplayer.queueSkipUnicycle": "Ne pas mettre en file d'attente les monocycles (Bonhomme de neige, Beamlings)",
-  "ui.options.multiplayer.queueSkipUnicycle.tooltip": "Si activé, les bonhommes de neiege et les Beamlings apparaîtrons instantanément",
+  "ui.options.multiplayer.queueSkipUnicycle.tooltip": "Si activé, les bonhommes de neige et les Beamlings apparaîtrons instantanément",
   "ui.options.multiplayer.luaOptimisations": "Activer l'optimisations de véhicule",
   "ui.options.multiplayer.luaOptimisations.tooltip": "Si cette option est activée, les autres véhicules effectueront des calculs Lua limités, ce qui améliorera les performances.",
   "ui.options.multiplayer.nameTags": "Masquer les pseudos des joueurs",
