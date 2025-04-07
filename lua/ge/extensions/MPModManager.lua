@@ -100,7 +100,7 @@ local function checkMod(mod) --TODO: might have a flaw with repo mods as their n
 
 	if not modAllowed and mod.active then
 		log('W', 'checkMod', "This mod should not be running: "..modname)
-		core_modmanager.deactivateMod(modname)
+	-- Deleted Line to prevent disabling of mods -- Would prefer a switch to turn on and off -- Ausdboss
 		if mod.dirname == '/mods/multiplayer/' then
 			core_modmanager.deleteMod(modname)
 		end
